@@ -11,15 +11,30 @@ export class JokeGenerator extends Component {
             limit: 10,
             loading:false
         }
+
+        this.seenJokes = new Set(this.state.jokes.map(jk=>jk.jokes))
+
         this.handleUpvote = this.handleUpvote.bind(this);
         this.getJokes = this.getJokes.bind(this);
         this.generateJoke = this.generateJoke.bind(this)
+        this.clearJokes = this.clearJokes.bind(this)
+        
     }
 
-     componentDidMount() {
-        if(this.state.jokes.length === 0) this.getJokes()
+    //  componentDidMount() {
+    //     if(this.state.jokes.length === 0){
+    //         this.getJokes()
+    //         this.setState({
+    //             loading:true
+    //         })
+    //     }
+    // }
 
-    }
+    /*componentDidUpdate(){
+        this.setState(st=>({
+            jokes:[...st.jokes,]
+        }))
+    }*/
 
     async getJokes() {
         let allJokes = [];
@@ -30,8 +45,9 @@ export class JokeGenerator extends Component {
                 },
             });
             const joke = await response.json();
-            allJokes.push({ jokes: joke.joke, point: 0, id: joke.id });
-           
+            if(!this.seenJokes.has(joke.joke)){
+                allJokes.push({ jokes: joke.joke, point: 0, id: joke.id });
+            }
         }
 
         this.setState(state => ({
@@ -62,7 +78,16 @@ export class JokeGenerator extends Component {
         )
     }
 
+    clearJokes(){
+        this.setState({
+            jokes:[]
+        })
+
+        window.localStorage.clear();
+    }
     render() {
+        console.log(this.seenJokes.size)
+        console.log(this.state.jokes.length)
         if(this.state.loading){
             return(
                 <div className="loading">
@@ -71,6 +96,7 @@ export class JokeGenerator extends Component {
                 </div>
             )
         }
+
         return (
             <div className="Jokesboard">
                 <div className="jokes-generator">
@@ -79,8 +105,16 @@ export class JokeGenerator extends Component {
                         <p>😂</p>
                     </div>
                     <button onClick={this.generateJoke}>New Jokes</button>
+                    <i class="fas fa-trash" onClick ={this.clearJokes}> Clear all</i>
                 </div>
-                <JokeList jokes={this.state.jokes} handleUpVote={this.handleUpvote} />
+                {this.state.jokes.length === 0?<div className = "JokeList">
+                    <div className = "message">
+                        NO JOKES LEFT
+                        
+                    </div>     
+                </div>:
+                <JokeList jokes={this.state.jokes} handleUpVote={this.handleUpvote} />}
+               
             </div>
         )
     }

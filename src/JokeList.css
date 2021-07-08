@@ -14,3 +14,13 @@
     margin: 0;
     padding: .8rem;
 }
+
+.message{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 70vh;
+    color: #eeeeee;
+    font-size: 5rem;
+}

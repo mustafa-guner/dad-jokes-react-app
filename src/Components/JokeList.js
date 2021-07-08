@@ -4,13 +4,13 @@ import "../JokeList.css";
 
 export class JokeList extends Component {
     render() {
-        console.log(this.props.jokes)
+        const jokes = this.props.jokes.sort((a,b)=>b.point - a.point);
         return (
            
             <div className ="JokeList">
                 <ul>
                   {
-                      this.props.jokes.map(joke=>(
+                      jokes.map(joke=>(
                           <Joke upvote = {this.props.handleUpVote} id={joke.id} key = {joke.id} joke = {joke.jokes} point = {joke.point}/>
                       ))
                   }
