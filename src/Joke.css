@@ -1,0 +1,53 @@
+.Joke{
+    display: flex;
+    width: 100%;
+    padding: 1.3rem 0;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+
+
+.Joke .points{
+    display: flex;
+}
+
+.Joke .points .vote{
+    cursor: pointer;
+    align-self: center;
+    padding-left: .4rem;
+    padding-right: .4rem;
+}
+
+.upvote{
+    color: #EF5688;
+}
+
+.downvote{
+   
+    color: #8B69C6;
+}
+
+.Joke .points .point{
+    border-radius: 50%;
+    padding: .8rem;
+    width: 13px;
+    height: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.2);
+    
+}
+
+.Joke  .joke{
+   text-align: left;
+}
+
+.Joke .face-icon{
+    font-size: 3rem;
+    box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.2);
+    border-radius: 100%;
+    padding: .3rem 0;
+}

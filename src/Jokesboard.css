@@ -1,0 +1,76 @@
+
+.Jokesboard{
+    display: flex;
+    justify-content: center;
+    height: 800px;
+    margin: 0rem auto;
+    padding-top: 2rem;
+ 
+
+}
+
+.Jokesboard .jokes-generator{
+    width: 300px;
+    height: 100%;
+    background-color:#8B69C6;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 3px 1px 1px rgba(0,0,0,0.12), 
+    0 2px 2px rgba(0,0,0,0.12), 
+    0 4px 4px rgba(0,0,0,0.12), 
+    0 8px 8px rgba(0,0,0,0.12),
+    0 16px 16px rgba(0,0,0,0.12);
+}
+
+.Jokesboard .jokes-generator h1 span{
+    font-weight: 200;
+}
+
+.Jokesboard .jokes-generator .smile-ico{
+    background-color: #8B69C6;
+    box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.6);
+    -moz-box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.6);
+    -webkit-box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.6);
+    -o-box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 130px;
+    height: 130px;
+    padding: 1rem;
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+}
+.Jokesboard .jokes-generator .smile-ico p{
+ position: absolute;
+ top: -79%;
+ 
+ font-size: 8rem;
+}
+
+.Jokesboard .jokes-generator button{
+    padding: .8rem 2.3rem;
+    border-radius: 15px;
+    cursor: pointer;
+    border: 0;
+    background: linear-gradient(-60deg,#EF5688  50%, #ADE2FD 50%);
+    box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.3);
+    -moz-box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.3);
+    -webkit-box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.3);
+    -o-box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.3);
+    color: #fff;
+    font-size: 1.3rem;
+    margin: 1rem;
+}
+
+.loading{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
